@@ -1,26 +1,135 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 0.625rem;
+  --background: #121212;
+  --foreground: #ffffff;
+  --card: #1E1E1E;
+  --card-foreground: #f8f8f8;
+  --popover: #1E1E1E;
+  --popover-foreground: #ffffff;
+  --primary: #8B5CF6;
+  --primary-dark: #4C1D95;
+  --primary-foreground: #ffffff;
+  --secondary: #1E1E1E;
+  --secondary-foreground: #ffffff;
+  --muted: #333333;
+  --muted-foreground: #888888;
+  --accent: #E0B978;
+  --accent-foreground: #121212;
+  --destructive: #ff4747;
+  --destructive-foreground: #ffffff;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #8B5CF6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
+/* Add scroll margin for fixed header */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Custom button styles */
+.btn-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  transform: translateY(-2px);
+}
+
+.gold-text {
+  color: var(--accent);
+}
+
+.glow-effect {
+  transition: all 0.3s ease;
+}
+
+.glow-effect:hover {
+  text-shadow: 0 0 8px rgba(224, 185, 120, 0.6);
+}
+
+@layer components {
+  .glow-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glow-effect:hover {
+    text-shadow: 0 0 8px var(--accent);
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#8B5CF6] to-[#4C1D95] text-white font-bold 
+    transition-all hover:shadow-[0_0_15px_rgba(139,92,246,0.5)];
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-[#E0B978] to-[#D4AF37] text-black font-bold 
+    transition-all hover:shadow-[0_0_20px_rgba(224,185,120,0.5)];
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#E0B978] to-[#D4AF37] bg-clip-text text-transparent;
+  }
+  
+  .card-dark {
+    @apply bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 
+    shadow-[0_4px_30px_rgba(0,0,0,0.4)];
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 inline-block;
+  }
+  
+  .section-divider {
+    @apply w-24 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] mx-auto rounded-full;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary), var(--accent));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--accent), var(--primary));
 }
