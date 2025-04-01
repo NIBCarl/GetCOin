@@ -5,16 +5,16 @@ import Image from "next/image";
 
 export function About() {
   return (
-    <section id="about" className="bg-[#121212] text-white py-24 relative overflow-hidden">
+    <section id="about" className="relative bg-[#121212] text-white py-24 overflow-hidden w-full">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-full h-full opacity-10">
-          <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#8B5CF6] rounded-full filter blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-1/4 -right-24 w-96 h-96 bg-[#ffdebb] rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#E0B978] rounded-full filter blur-3xl"></div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 relative z-10 max-w-[2000px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -25,93 +25,102 @@ export function About() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block">
             <span className="bg-gradient-to-r from-[#E0B978] to-[#D4AF37] bg-clip-text text-transparent">About GEN Coin</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ffdebb] to-[#E0B978] mx-auto rounded-full"></div>
+          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+            GEN Coin brings together the viral appeal of meme coins with genuine utility and long-term value creation
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#8B5CF6]/20 to-[#E0B978]/20 rounded-xl blur-lg"></div>
-              <div className="relative overflow-hidden rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
-                <Image
-                  src="/PFP.jpg"
-                  alt="About GEN Coin"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#ffdebb]/20 to-[#E0B978]/20 rounded-xl blur-lg"></div>
+            <Image
+              src="/gen-coin.png"
+              alt="GEN Coin"
+              width={500}
+              height={500}
+              className="mx-auto relative z-10"
+            />
           </motion.div>
-
+          
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-6"
           >
-            <h3 className="text-2xl font-bold text-[#E0B978]">Our Mission</h3>
-            <p className="text-gray-300">
-              GEN Coin represents a new era in cryptocurrency – one that harmonizes the viral appeal of meme coins with tangible social impact. 
-              Our mission is to create financial opportunities for our community while supporting meaningful initiatives through the GEN Council.
+            <h3 className="text-2xl font-bold mb-4 text-[#E0B978]">Our Vision</h3>
+            <p className="text-gray-300 mb-6">
+              GEN Coin stands for Generation - creating multi-generational wealth for all holders through a community-governed token that funds real-world projects with measurable impacts.
             </p>
-            
-            <h3 className="text-2xl font-bold text-[#E0B978]">Built on Solana</h3>
-            <p className="text-gray-300">
-              We&apos;ve chosen Solana for its lightning-fast transaction speeds and minimal environmental impact. 
-              This ensures GEN Coin remains accessible to all, with gas fees that are a fraction of other blockchains.
+            <p className="text-gray-300 mb-6">
+              Unlike typical meme coins that rely solely on hype, GEN Coin is built on a foundation of transparency, community governance, and sustainable tokenomics. Our unique GEN Council ensures that community funds are allocated responsibly and effectively.
             </p>
-            
-            <h3 className="text-2xl font-bold text-[#E0B978]">Community Governance</h3>
-            <p className="text-gray-300">
-              The GEN Council – a decentralized body of community members – stewards the Community Fund, directing resources to initiatives that align with our vision of building community value. Through this innovative governance model, we ensure transparency and collective decision-making.
-            </p>
+            <div className="grid grid-cols-2 gap-6 mt-8">
+              <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                <p className="text-[#E0B978] font-bold text-xl mb-1">20%</p>
+                <p className="text-gray-400 text-sm">Allocated to Community Fund</p>
+              </div>
+              <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+                <p className="text-[#E0B978] font-bold text-xl mb-1">7-10</p>
+                <p className="text-gray-400 text-sm">GEN Council Members</p>
+              </div>
+            </div>
           </motion.div>
         </div>
 
-        <motion.div 
+        {/* Key Benefits */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-20 p-8 bg-[#1A1A1A] rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto"
         >
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#8B5CF6] to-[#4C1D95] rounded-lg shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#E0B978] mb-2">Value Generation</h3>
-              <p className="text-gray-400">Combined community purchasing power to create real financial returns</p>
+          <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] text-center">
+            <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#ffdebb] to-[#dbb78e] rounded-lg shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#E0B978] to-[#D4AF37] rounded-lg shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#121212]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#E0B978] mb-2">Community Power</h3>
-              <p className="text-gray-400">Democratic decision-making through the GEN Council governance structure</p>
+            <h3 className="text-xl font-bold mb-2 text-[#E0B978]">Transparent</h3>
+            <p className="text-gray-300">All fund movements and council decisions are recorded on-chain for full transparency</p>
+          </div>
+          
+          <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] text-center">
+            <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#ffdebb] to-[#dbb78e] rounded-lg shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black">
+                <path d="M12 2v4"></path>
+                <path d="M12 18v4"></path>
+                <path d="m4.93 4.93 2.83 2.83"></path>
+                <path d="m16.24 16.24 2.83 2.83"></path>
+                <path d="M2 12h4"></path>
+                <path d="M18 12h4"></path>
+                <path d="m4.93 19.07 2.83-2.83"></path>
+                <path d="m16.24 7.76 2.83-2.83"></path>
+              </svg>
             </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#8B5CF6] to-[#4C1D95] rounded-lg shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#E0B978] mb-2">Transparency</h3>
-              <p className="text-gray-400">All fund movements and governance decisions are recorded on the blockchain</p>
+            <h3 className="text-xl font-bold mb-2 text-[#E0B978]">Community-Driven</h3>
+            <p className="text-gray-300">Token holders can propose and vote on projects through our democratic governance model</p>
+          </div>
+          
+          <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] text-center">
+            <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-[#ffdebb] to-[#dbb78e] rounded-lg shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-black">
+                <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+              </svg>
             </div>
+            <h3 className="text-xl font-bold mb-2 text-[#E0B978]">Purposeful</h3>
+            <p className="text-gray-300">Combines financial opportunity with meaningful social impact through funded projects</p>
           </div>
         </motion.div>
       </div>

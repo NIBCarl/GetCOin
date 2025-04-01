@@ -1,108 +1,73 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Globe, MessageCircle, MessagesSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-interface CommunityLinkProps {
-  href: string;
-  icon: React.ReactNode;
-  name: string;
-  members: string;
-  color: string;
-  index: number;
-}
-
-function CommunityLink({ href, icon, name, members, color, index }: CommunityLinkProps) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: 0.1 * index }}
-    >
-      <Link 
-        href={href} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="block group"
-      >
-        <div className={`bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_${color}80] transition-all duration-300 hover:-translate-y-1`}>
-          <div className="flex items-center space-x-4">
-            <div className={`w-12 h-12 flex items-center justify-center rounded-lg ${name === "X" ? "bg-gradient-to-br from-gray-900 to-black" : `bg-gradient-to-br from-${color} to-[#1A1A1A]`}`}>
-              {name === "X" ? 
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-white">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                </svg> 
-                : icon
-              }
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-1">{name}</h3>
-              <p className="text-gray-400">{members}</p>
-            </div>
-          </div>
-        </div>
-      </Link>
-    </motion.div>
-  );
-}
 
 export function Community() {
-  const communities = [
+  const socialLinks = [
     {
-      href: "https://x.com/GENCoinOfficial",
-      icon: null,
       name: "X",
-      members: "10.5K Followers",
-      color: "#1D1D1D"
-    },
-    {
-      href: "https://discord.gg/GENCoin",
+      url: "https://x.com/GENCoinOfficial",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-white">
-          <path d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"></path>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       ),
-      name: "Discord",
-      members: "8.2K Members",
-      color: "#5865F2"
+      description: "Follow for project updates and announcements"
     },
     {
-      href: "https://www.reddit.com/r/GenCoin/",
+      name: "Discord",
+      url: "https://discord.gg/GENCoin",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 0 0-.079.036c-.21.385-.39.779-.53 1.162-1.614-.246-3.217-.246-4.81 0-.14-.389-.32-.779-.54-1.162a.077.077 0 0 0-.079-.036c-1.714.29-3.354.8-4.885 1.49a.07.07 0 0 0-.032.028C.533 9.094-.32 13.555.099 17.961a.08.08 0 0 0 .031.055c1.992 1.457 3.922 2.344 5.83 2.933a.078.078 0 0 0 .084-.026 18.38 18.38 0 0 0 1.226-1.982.074.074 0 0 0-.041-.104 15.15 15.15 0 0 1-2.156-1.023.075.075 0 0 1-.008-.125c.145-.109.29-.218.43-.33a.075.075 0 0 1 .079-.01c3.986 1.815 8.298 1.815 12.241 0a.075.075 0 0 1 .08.01c.14.112.285.221.43.33a.075.075 0 0 1-.006.125c-.687.398-1.409.747-2.157 1.023a.074.074 0 0 0-.04.106c.36.687.772 1.341 1.225 1.98a.077.077 0 0 0 .084.028c1.92-.589 3.85-1.476 5.844-2.933a.078.078 0 0 0 .032-.055c.5-5.177-.839-9.598-3.549-13.441a.062.062 0 0 0-.031-.03zM8.02 15.278c-1.151 0-2.102-1.052-2.102-2.35 0-1.3.929-2.352 2.102-2.352 1.183 0 2.123 1.063 2.102 2.352 0 1.298-.929 2.35-2.102 2.35zm7.772 0c-1.151 0-2.102-1.052-2.102-2.35 0-1.3.929-2.352 2.102-2.352 1.184 0 2.124 1.063 2.102 2.352 0 1.298-.918 2.35-2.102 2.35z" />
+        </svg>
+      ),
+      description: "Join our Discord server for community discussions"
+    },
+    {
+      name: "Reddit",
+      url: "https://www.reddit.com/r/GENCoin",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
           <path d="M24 11.779c0-1.459-1.192-2.645-2.657-2.645-.715 0-1.363.286-1.84.746-1.81-1.191-4.259-1.949-6.971-2.046l1.483-4.669 4.016.941-.006.058c0 1.193.975 2.163 2.174 2.163 1.198 0 2.172-.97 2.172-2.163s-.975-2.164-2.172-2.164c-.92 0-1.704.574-2.021 1.379l-4.329-1.015c-.189-.046-.381.063-.44.249l-1.654 5.207c-2.838.034-5.409.798-7.3 2.025-.474-.438-1.103-.712-1.799-.712-1.465 0-2.656 1.187-2.656 2.646 0 .97.533 1.811 1.317 2.271-.052.282-.086.567-.086.857 0 3.911 4.808 7.093 10.719 7.093s10.72-3.182 10.72-7.093c0-.274-.029-.544-.075-.81.832-.447 1.405-1.312 1.405-2.318zm-17.224 1.816c0-.868.71-1.575 1.582-1.575.872 0 1.581.707 1.581 1.575s-.709 1.574-1.581 1.574-1.582-.706-1.582-1.574zm9.061 4.669c-.797.793-2.048 1.179-3.824 1.179l-.013-.003-.013.003c-1.777 0-3.028-.386-3.824-1.179-.145-.144-.145-.379 0-.523.145-.145.381-.145.526 0 .65.647 1.729.961 3.298.961l.013.003.013-.003c1.569 0 2.648-.315 3.298-.962.145-.145.381-.144.526 0 .145.145.145.379 0 .524zm-.189-3.095c-.872 0-1.581-.706-1.581-1.574 0-.868.709-1.575 1.581-1.575s1.581.707 1.581 1.575-.709 1.574-1.581 1.574z"></path>
         </svg>
       ),
-      name: "Reddit",
-      members: "15.8K Community",
-      color: "#FF4500"
-    },
-    {
-      href: "https://t.me/GENCoinOfficial",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-white">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"></path>
-        </svg>
-      ),
-      name: "Telegram",
-      members: "12.3K Members",
-      color: "#0088cc"
+      description: "Join our Reddit community for discussions and updates"
     }
   ];
 
+  const SocialCard = ({ name, url, icon, description }: { name: string, url: string, icon: React.ReactNode, description: string }) => (
+    <motion.a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] hover:shadow-[0_0_20px_rgba(224,185,120,0.3)] transition-all duration-300 flex flex-col items-center text-center"
+    >
+      <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-[#E0B978] to-[#D4AF37] flex items-center justify-center shadow-[0_0_15px_rgba(224,185,120,0.3)]">
+        {icon}
+      </div>
+      <h3 className="text-xl font-bold text-[#E0B978] mb-2">{name}</h3>
+      <p className="text-gray-300">{description}</p>
+    </motion.a>
+  );
+
   return (
-    <section id="community" className="relative bg-[#1A1A1A] text-white py-24 overflow-hidden">
+    <section id="community" className="relative bg-[#121212] text-white py-24 overflow-hidden w-full">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          <div className="absolute -top-24 right-1/4 w-96 h-96 bg-[#E0B978] rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#8B5CF6] rounded-full filter blur-3xl"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#E0B978] rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#ffdebb] rounded-full filter blur-3xl"></div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 relative z-10 max-w-[2000px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -113,22 +78,20 @@ export function Community() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block">
             <span className="bg-gradient-to-r from-[#E0B978] to-[#D4AF37] bg-clip-text text-transparent">Join Our Community</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ffdebb] to-[#E0B978] mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            Connect with like-minded individuals who share a passion for innovative crypto projects with real-world impact
+            Connect with the GEN Coin community and stay updated on all project developments
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {communities.map((community, index) => (
-            <CommunityLink
+        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {socialLinks.map((link, index) => (
+            <SocialCard
               key={index}
-              href={community.href}
-              icon={community.icon}
-              name={community.name}
-              members={community.members}
-              color={community.color}
-              index={index}
+              name={link.name}
+              url={link.url}
+              icon={link.icon}
+              description={link.description}
             />
           ))}
         </div>
@@ -137,17 +100,59 @@ export function Community() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 max-w-3xl mx-auto text-center"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-20 bg-[#1A1A1A] p-8 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] max-w-7xl mx-auto"
         >
-          <div className="bg-[#121212] p-8 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
-            <h3 className="text-2xl font-bold text-[#E0B978] mb-4">Become a GEN Council Member</h3>
-            <p className="text-gray-300 mb-6">
-              Are you passionate about community-driven projects and want to help shape the future of GEN Coin? Apply to become a member of our governing council.
-            </p>
-            <Button className="bg-gradient-to-r from-[#8B5CF6] to-[#4C1D95] hover:from-[#7C3AED] hover:to-[#5B21B6] text-white font-bold py-6 px-8 transition-all shadow-lg hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]">
-              <Link href="/council-application">Apply Now</Link>
-            </Button>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-2xl font-bold text-[#E0B978] mb-4">Apply to Join the GEN Council</h3>
+              <p className="text-gray-300 mb-6">
+                Do you have relevant experience in finance, crypto, community management, or charitable initiatives? Apply to become a GEN Council member and help shape the future of our project.
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#E0B978] flex items-center justify-center mt-1 flex-shrink-0">
+                    <span className="text-black text-xs font-bold">✓</span>
+                  </div>
+                  <p className="text-gray-300">Help decide which community projects receive funding</p>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#E0B978] flex items-center justify-center mt-1 flex-shrink-0">
+                    <span className="text-black text-xs font-bold">✓</span>
+                  </div>
+                  <p className="text-gray-300">Vote on important governance decisions</p>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#E0B978] flex items-center justify-center mt-1 flex-shrink-0">
+                    <span className="text-black text-xs font-bold">✓</span>
+                  </div>
+                  <p className="text-gray-300">Shape the future direction of GEN Coin</p>
+                </li>
+              </ul>
+              <Button className="bg-gradient-to-r from-[#ffdebb] to-[#dbb78e] hover:from-[#ffdebb] hover:to-[#dbb78e] text-black font-bold py-6 px-8 transition-all shadow-lg hover:shadow-[0_0_15px_rgba(255,222,187,0.5)]">
+                Apply Now
+              </Button>
+            </div>
+            <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20">
+              <h4 className="text-lg font-bold text-white mb-4">Council Member Requirements</h4>
+              <ul className="space-y-3">
+                <li className="pl-4 border-l-2 border-[#E0B978]">
+                  <span className="text-[#E0B978]">Expertise</span>: Background in finance, crypto, community management, or charity
+                </li>
+                <li className="pl-4 border-l-2 border-[#E0B978]">
+                  <span className="text-[#E0B978]">Commitment</span>: Minimum 5-10 hours weekly for council duties
+                </li>
+                <li className="pl-4 border-l-2 border-[#E0B978]">
+                  <span className="text-[#E0B978]">Holding</span>: Minimum GEN token holding requirement
+                </li>
+                <li className="pl-4 border-l-2 border-[#E0B978]">
+                  <span className="text-[#E0B978]">Transparency</span>: Willingness to share professional background
+                </li>
+                <li className="pl-4 border-l-2 border-[#E0B978]">
+                  <span className="text-[#E0B978]">Values</span>: Alignment with GEN Coin's community-first philosophy
+                </li>
+              </ul>
+            </div>
           </div>
         </motion.div>
       </div>

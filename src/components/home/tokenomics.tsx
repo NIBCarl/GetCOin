@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 export function Tokenomics() {
   const distributionData = [
     { id: "public-sale", category: "Public Sale", percentage: 40, color: "#E0B978" },
-    { id: "council-budget", category: "GEN Council Budget", percentage: 15, color: "#8B5CF6" },
-    { id: "launch", category: "Launch", percentage: 5, color: "#4C1D95" },
-    { id: "liquidity", category: "Liquidity", percentage: 20, color: "#7C3AED" },
+    { id: "council-budget", category: "GEN Council Budget", percentage: 15, color: "#ffdebb" },
+    { id: "launch", category: "Launch", percentage: 5, color: "#dbb78e" },
+    { id: "liquidity", category: "Liquidity", percentage: 20, color: "#ffdebb" },
     { id: "community-fund", category: "Community Fund", percentage: 20, color: "#D4AF37" },
   ];
 
@@ -27,16 +27,16 @@ export function Tokenomics() {
   };
 
   return (
-    <section id="tokenomics" className="relative bg-[#1A1A1A] text-white py-24 overflow-hidden">
+    <section id="tokenomics" className="relative bg-[#1A1A1A] text-white py-24 overflow-hidden w-full">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#8B5CF6] rounded-full filter blur-3xl"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#ffdebb] rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-[#E0B978] rounded-full filter blur-3xl"></div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 relative z-10 max-w-[2000px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,13 +47,13 @@ export function Tokenomics() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block">
             <span className="bg-gradient-to-r from-[#E0B978] to-[#D4AF37] bg-clip-text text-transparent">Tokenomics</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ffdebb] to-[#E0B978] mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             GEN Coin&apos;s tokenomics are designed to balance community growth, long-term sustainability, and project funding.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 md:gap-12">
+        <div className="grid lg:grid-cols-5 gap-8 md:gap-12 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}

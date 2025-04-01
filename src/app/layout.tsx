@@ -27,10 +27,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" style={{ scrollBehavior: 'smooth' }}>
-      <body className={inter.className}>
+      <body className={`${inter.className} overflow-x-hidden w-full m-0 p-0`}>
         <WalletContextProvider>
           <Header />
-          <div className="pt-[70px]"> {/* Add padding top to account for fixed header */}
+          <div className="pt-[70px] w-full"> {/* Add padding top to account for fixed header */}
             {children}
           </div>
           <Footer />

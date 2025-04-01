@@ -20,15 +20,15 @@ function RoadmapItem({ title, description, quarter, index, isCompleted = false }
       className="relative"
     >
       {/* Timeline connector */}
-      <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#8B5CF6] to-[#E0B978] z-0"></div>
+      <div className="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#ffdebb] to-[#E0B978] z-0"></div>
       
       {/* Quarter marker - moved outside of the timeline */}
       <div className={`absolute -left-3 top-0 rounded-full flex items-center justify-center z-10`}>
         <div className={`w-16 h-16 rounded-full flex items-center justify-center
           ${isCompleted 
             ? 'bg-gradient-to-br from-[#E0B978] to-[#D4AF37] shadow-[0_0_15px_rgba(224,185,120,0.5)]' 
-            : 'bg-gradient-to-br from-[#8B5CF6] to-[#4C1D95] shadow-[0_0_15px_rgba(139,92,246,0.5)]'}`}>
-          <span className={`text-xs font-bold ${isCompleted ? 'text-black' : 'text-white'} text-center whitespace-pre-line leading-tight px-1`}>
+            : 'bg-gradient-to-br from-[#ffdebb] to-[#dbb78e] shadow-[0_0_15px_rgba(255,222,187,0.5)]'}`}>
+          <span className={`text-xs font-bold ${isCompleted ? 'text-black' : 'text-black'} text-center whitespace-pre-line leading-tight px-1`}>
             {quarter}
           </span>
         </div>
@@ -38,7 +38,7 @@ function RoadmapItem({ title, description, quarter, index, isCompleted = false }
         <h3 className={`text-xl font-bold mb-2 
           ${isCompleted 
             ? 'text-[#E0B978]' 
-            : 'bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] bg-clip-text text-transparent'}`}>
+            : 'bg-gradient-to-r from-[#ffdebb] to-[#E0B978] bg-clip-text text-transparent'}`}>
           {title}
         </h3>
         <div className="bg-[#121212] p-5 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
@@ -84,16 +84,16 @@ export function Roadmap() {
   ];
 
   return (
-    <section id="roadmap" className="relative bg-[#121212] text-white py-24 overflow-hidden">
+    <section id="roadmap" className="relative bg-[#121212] text-white py-24 overflow-hidden w-full">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute top-1/2 -left-24 w-96 h-96 bg-[#E0B978] rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#8B5CF6] rounded-full filter blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#ffdebb] rounded-full filter blur-3xl"></div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="w-full px-4 relative z-10 max-w-[2000px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -104,13 +104,13 @@ export function Roadmap() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block">
             <span className="bg-gradient-to-r from-[#E0B978] to-[#D4AF37] bg-clip-text text-transparent">Roadmap</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ffdebb] to-[#E0B978] mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
             Our strategic plan to build, grow, and deliver value to the GEN community
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {roadmapItems.map((item, index) => (
             <RoadmapItem
               key={index}

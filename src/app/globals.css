@@ -10,9 +10,9 @@
   --card-foreground: #f8f8f8;
   --popover: #1E1E1E;
   --popover-foreground: #ffffff;
-  --primary: #8B5CF6;
-  --primary-dark: #4C1D95;
-  --primary-foreground: #ffffff;
+  --primary: #ffdebb;
+  --primary-dark: #dbb78e;
+  --primary-foreground: #121212;
   --secondary: #1E1E1E;
   --secondary-foreground: #ffffff;
   --muted: #333333;
@@ -23,12 +23,28 @@
   --destructive-foreground: #ffffff;
   --border: #2A2A2A;
   --input: #2A2A2A;
-  --ring: #8B5CF6;
+  --ring: #ffdebb;
 }
 
 @layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, 
   body {
     @apply bg-background text-foreground;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  section {
+    width: 100vw;
+    max-width: 100%;
   }
 }
 
@@ -40,12 +56,12 @@ section[id] {
 /* Custom button styles */
 .btn-gradient {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
+  color: black;
   transition: all 0.3s ease;
 }
 
 .btn-gradient:hover {
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 0 15px rgba(255, 222, 187, 0.5);
   transform: translateY(-2px);
 }
 
@@ -72,8 +88,8 @@ section[id] {
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-[#8B5CF6] to-[#4C1D95] text-white font-bold 
-    transition-all hover:shadow-[0_0_15px_rgba(139,92,246,0.5)];
+    @apply bg-gradient-to-r from-[#ffdebb] to-[#dbb78e] text-black font-bold 
+    transition-all hover:shadow-[0_0_15px_rgba(255,222,187,0.5)];
   }
   
   .btn-accent {
@@ -95,7 +111,7 @@ section[id] {
   }
   
   .section-divider {
-    @apply w-24 h-1 bg-gradient-to-r from-[#8B5CF6] to-[#E0B978] mx-auto rounded-full;
+    @apply w-24 h-1 bg-gradient-to-r from-[#ffdebb] to-[#E0B978] mx-auto rounded-full;
   }
 }
 

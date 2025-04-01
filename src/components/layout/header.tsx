@@ -39,7 +39,7 @@ export function Header() {
   };
 
   return (
-    <header className="w-full py-4 px-6 flex justify-between items-center bg-gradient-to-r from-[#4C1D95] to-[#121212] fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <header className="w-full py-4 px-6 flex justify-between items-center bg-gradient-to-r from-[#dbb78e] to-[#121212] fixed top-0 left-0 right-0 z-50 shadow-lg">
       <Link href="/" className="flex items-center">
         <Image
           src="/Logo Text.png"
