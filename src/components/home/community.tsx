@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, MessageCircle, MessagesSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Community() {
@@ -149,7 +148,7 @@ export function Community() {
                   <span className="text-[#E0B978]">Transparency</span>: Willingness to share professional background
                 </li>
                 <li className="pl-4 border-l-2 border-[#E0B978]">
-                  <span className="text-[#E0B978]">Values</span>: Alignment with GEN Coin's community-first philosophy
+                  <span className="text-[#E0B978]">Values</span>: Alignment with GEN Coin&apos;s community-first philosophy
                 </li>
               </ul>
             </div>
