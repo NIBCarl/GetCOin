@@ -21,14 +21,19 @@ export function WalletStatus() {
   
   return (
     <div className="relative">
-      <Button
-        variant="outline"
-        className="bg-gradient-to-r from-[#1E1E1E] to-[#121212] border-[#E0B978]/30 text-white hover:bg-[#1E1E1E]/80 transition-all flex items-center gap-2"
+      <motion.div
+        whileHover={{ 
+          scale: 1.05,
+          boxShadow: "0 0 15px rgba(224,185,120,0.4)"
+        }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        className="flex items-center gap-2 bg-[#121212] px-4 py-2 rounded-md border border-[#E0B978]/20 cursor-pointer hover:bg-[#1A1A1A] group"
         onClick={() => setShowDropdown(!showDropdown)}
       >
         <div className="w-2 h-2 rounded-full bg-green-500"></div>
-        {displayAddress}
-      </Button>
+        <span className="text-[#E0B978] group-hover:text-white transition-colors duration-300">{displayAddress}</span>
+      </motion.div>
       
       <AnimatePresence>
         {showDropdown && (
