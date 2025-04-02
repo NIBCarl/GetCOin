@@ -27,7 +27,7 @@ export default function PresalePage() {
     },
     {
       question: "When will GEN Coin be listed on exchanges?",
-      answer: "GEN Coin is scheduled to be listed on decentralized exchanges in Q3 2025, following the completion of the presale phase. We&apos;re also working on partnerships with centralized exchanges for future listings."
+      answer: "GEN Coin is scheduled to be listed on decentralized exchanges in Q3 2025, following the completion of the presale phase. We're also working on partnerships with centralized exchanges for future listings."
     },
     {
       question: "Is there a minimum or maximum investment amount?",
@@ -35,7 +35,7 @@ export default function PresalePage() {
     },
     {
       question: "How are presale funds used?",
-      answer: "Presale funds are allocated to development (30%), marketing (25%), liquidity provision (35%), and operational expenses (10%). This ensures GEN Coin has the resources needed for successful launch and growth."
+      answer: "Funds through the Pre development and Presale are allocated to development (15%), marketing (30%), liquidity provision (45%), and operations and reserves (10%). This ensures GEN Coin has the resources needed for successful launch and growth."
     }
   ];
 
@@ -118,9 +118,10 @@ export default function PresalePage() {
               <h3 className="text-xl font-semibold mb-3 text-[#E0B978]">Tokenomics</h3>
               <ul className="list-disc pl-5 space-y-2 text-gray-300">
                 <li>Total Supply: <span className="text-[#E0B978]">1,000,000,000 GEN</span></li>
+                <li>Pre Development: <span className="text-[#E0B978]">8% (80,000,000 GEN)</span></li>
                 <li>Presale Allocation: <span className="text-[#E0B978]">32% (320,000,000 GEN)</span></li>
-                <li>Initial Price: <span className="text-[#E0B978]">$0.0010</span></li>
-                <li>Listing Price: <span className="text-[#E0B978]">$0.0018 (80% increase)</span></li>
+                <li>Initial Price: <span className="text-[#E0B978]">$0.0025</span></li>
+                <li>Listing Price: <span className="text-[#E0B978]">$0.0025 (0% increase)</span></li>
                 <li>60% of presale tokens locked for 12 months</li>
                 <li>40% of presale tokens unlocked at launch</li>
               </ul>
@@ -130,7 +131,7 @@ export default function PresalePage() {
               <h3 className="text-xl font-semibold mb-3 text-[#E0B978]">Potential Returns</h3>
               <p className="mb-3 text-gray-300">
                 If GEN Coin reaches a <span className="text-[#E0B978]">$50 million</span> market cap, early investors stand to gain significant returns. 
-                For example, a $25,000 investment in the presale could be worth approximately <span className="text-[#E0B978]">$538,000</span> at $50 million cap.
+                For example, a $25,000 investment in the presale could be worth approximately <span className="text-[#E0B978]">$500,000</span> at $50 million cap.
               </p>
               <p className="text-gray-300">
                 Our goal is to reach at least <span className="text-[#E0B978]">$20 million</span> market cap in the first year, with plans to grow further 
@@ -184,31 +185,35 @@ export default function PresalePage() {
           <h2 className="text-2xl font-bold mb-4 text-[#E0B978]">Roadmap</h2>
           <ul className="space-y-4">
             <li className="flex gap-3">
-              <div className="font-bold text-[#E0B978] min-w-[110px]">Q2 2025:</div>
+              <div className="font-bold text-[#E0B978] min-w-[150px]">Q2 2025:</div>
               <div className="text-gray-300">
                 <span className="font-semibold text-white">Pre-Development</span> - Secure initial funding, develop smart contract and website, recruit the GEN Council
               </div>
             </li>
             <li className="flex gap-3">
-              <div className="font-bold text-[#E0B978] min-w-[110px]">Q2 2025:</div>
+              <div className="font-bold text-[#E0B978] min-w-[150px]">Q2 2025:</div>
               <div className="text-gray-300">
                 <span className="font-semibold text-white">Presale</span> - Launch public sale, build hype and engage with social community
               </div>
             </li>
             <li className="flex gap-3">
-              <div className="font-bold text-[#E0B978] min-w-[110px]">Q3 2025:</div>
+              <div className="font-bold text-[#E0B978] min-w-[150px]">Q3 2025:</div>
               <div className="text-gray-300">
                 <span className="font-semibold text-white">Launch</span> - List on decentralized exchanges, implement stabilization measures
               </div>
             </li>
-            <li className="flex gap-3">
-              <div className="font-bold text-[#E0B978] min-w-[110px]">Q4 2025-Q1 2026:</div>
+            <li className="flex gap-3 items-start">
+              <div className="font-bold text-[#E0B978] min-w-[150px] flex flex-col">
+                <span>Q4 2025</span>
+                <span>to</span>
+                <span>Q1 2026:</span>
+              </div>
               <div className="text-gray-300">
                 <span className="font-semibold text-white">Growth</span> - Aim for significant market cap growth, community engagement for charity projects
               </div>
             </li>
             <li className="flex gap-3">
-              <div className="font-bold text-[#E0B978] min-w-[110px]">Q2 2026:</div>
+              <div className="font-bold text-[#E0B978] min-w-[150px]">Q2 2026:</div>
               <div className="text-gray-300">
                 <span className="font-semibold text-white">Expansion</span> - Start funding community projects from the Community Fund
               </div>

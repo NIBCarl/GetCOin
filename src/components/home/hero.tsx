@@ -84,6 +84,7 @@ export function Hero() {
                 width={500}
                 height={500}
                 className="relative z-10 max-w-md w-full drop-shadow-[0_0_30px_rgba(224,185,120,0.3)]"
+                priority
               />
             </div>
           </motion.div>

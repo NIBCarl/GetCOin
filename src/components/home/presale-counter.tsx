@@ -13,8 +13,8 @@ export function PresaleCounter() {
   const [minutes, setMinutes] = useState(45);
   const [seconds, setSeconds] = useState(18);
   const [tokensRaised, setTokensRaised] = useState(138.31);
-  const [currentPrice] = useState(0.0010);
-  const [nextPrice] = useState(0.0018);
+  const [currentPrice] = useState(0.0025);
+  const [nextPrice] = useState(0.0025);
   const [purchaseAmount, setPurchaseAmount] = useState("0.1");
   const [selectedCurrency, setSelectedCurrency] = useState<"SOL" | "USDT" | "USDC">("SOL");
   const [isPurchasing, setIsPurchasing] = useState(false);

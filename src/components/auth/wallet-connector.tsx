@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import Image from "next/image";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import useWallet from "@/hooks/useWallet";
@@ -17,6 +17,7 @@ export function WalletConnector({ onClose, isOpen }: WalletConnectorProps) {
   const { connected, connecting, publicKey } = useWallet();
   const { setVisible } = useWalletModal();
   const [showMoreWallets, setShowMoreWallets] = useState(false);
+  const [connectionError, setConnectionError] = useState<string | null>(null);
   
   const handleDialogChange = (open: boolean) => {
     if (!open && onClose) {
@@ -25,25 +26,39 @@ export function WalletConnector({ onClose, isOpen }: WalletConnectorProps) {
   };
 
   const handleOpenWalletModal = () => {
-    setVisible(true);
-    if (onClose) {
-      onClose();
+    try {
+      setConnectionError(null);
+      setVisible(true);
+      if (onClose) {
+        onClose();
+      }
+    } catch (error) {
+      console.error("Wallet connection error:", error);
+      setConnectionError("Failed to initialize wallet connection. Please try again or refresh the page.");
     }
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={handleDialogChange}>
-      <DialogContent className="bg-gradient-to-b from-[#1E1E1E] to-[#121212] border-[#E0B978]/20 text-white sm:max-w-md max-w-[90vw] p-4 sm:p-6">
+      <DialogContent 
+        className="bg-gradient-to-b from-[#1E1E1E] to-[#121212] border-[#E0B978]/20 text-white sm:max-w-md max-w-[90vw] p-4 sm:p-6"
+        aria-describedby="wallet-connection-description"
+      >
         <DialogHeader className="pb-2">
           <DialogTitle className="text-2xl font-bold text-[#E0B978]">Connect Wallet</DialogTitle>
+          <DialogDescription id="wallet-connection-description" className="text-gray-400">
+            Connect your Solana wallet to participate in the presale.
+          </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-4 py-2">
-          <div className="space-y-2">
-            <p className="text-sm text-gray-300">
-              Connect your Solana wallet to participate in the presale and access exclusive features.
-            </p>
-          </div>
+          {connectionError && (
+            <div className="bg-red-900/20 border border-red-500/30 text-red-200 p-3 rounded-md text-sm">
+              <p className="font-medium mb-1">Connection Error</p>
+              <p>{connectionError}</p>
+              <p className="mt-2 text-xs">Try refreshing the page or check if your wallet extension is properly installed.</p>
+            </div>
+          )}
 
           {connecting ? (
             <div className="flex flex-col items-center justify-center py-8">

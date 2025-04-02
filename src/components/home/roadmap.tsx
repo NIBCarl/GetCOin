@@ -70,7 +70,7 @@ export function Roadmap() {
       isCompleted: false
     },
     {
-      quarter: "Q4 '25\nQ1 '26",
+      quarter: "Q4 '25\nto\nQ1 '26",
       title: "Growth",
       description: "Aim for significant market cap growth. Community engagement for charity projects.",
       isCompleted: false

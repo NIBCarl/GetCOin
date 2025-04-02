@@ -75,6 +75,81 @@ export function About() {
           </motion.div>
         </div>
 
+        {/* Mission & Problem We're Solving */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-16 max-w-7xl mx-auto bg-[#1A1A1A] rounded-xl border border-[#E0B978]/20 p-8 shadow-[0_4px_30px_rgba(0,0,0,0.4)]"
+        >
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-[#E0B978]">Our Mission</h3>
+              <p className="text-gray-300 mb-4">
+                The cryptocurrency market is filled with speculative assets that offer no real utility or social good. 
+                Meme coins, in particular, are often seen as pure speculation without any underlying value.
+              </p>
+              <p className="text-gray-300">
+                GEN Coin aims to change this narrative by creating a meme coin that not only offers potential financial 
+                returns but also drives real-world impact through its non-profit model. By investing in GEN Coin, 
+                you&apos;re joining a community that values both financial returns and social good.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-[#E0B978]">Community Empowerment</h3>
+              <p className="text-gray-300 mb-4">
+                The GEN Council, composed of 8 to 10 community, business, and banking leaders, will guide the project 
+                and make decisions on fund allocations, ensuring that the project stays true to its mission.
+              </p>
+              <p className="text-gray-300">
+                Community members are encouraged to participate in discussions, provide feedback, and contribute to 
+                the project&apos;s growth through various channels, including social media and dedicated platforms. Together, 
+                we&apos;re creating a lasting impact and building a strong, vibrant community.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Financial Opportunity */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-16 max-w-7xl mx-auto"
+        >
+          <h3 className="text-2xl font-bold mb-4 text-[#E0B978] text-center">Financial Opportunity</h3>
+          <div className="bg-[#121212] p-8 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+            <p className="text-gray-300 mb-6 text-center">
+              By combining the fun and virality of meme coins with the purpose of a non-profit, GEN Coin 
+              offers a unique value proposition: financial returns coupled with social impact.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-[#1A1A1A] p-6 rounded-lg text-center border border-[#E0B978]/10">
+                <h4 className="text-xl font-bold mb-2 text-[#E0B978]">Token Locking</h4>
+                <p className="text-gray-300">
+                  Strategic locking periods create scarcity and drive long-term value, with 60% of presale tokens 
+                  locked for 12 months
+                </p>
+              </div>
+              <div className="bg-[#1A1A1A] p-6 rounded-lg text-center border border-[#E0B978]/10">
+                <h4 className="text-xl font-bold mb-2 text-[#E0B978]">Market Growth</h4>
+                <p className="text-gray-300">
+                  Our goal is to reach at least $20 million market cap in the first year, with plans to grow further 
+                  through community-driven initiatives
+                </p>
+              </div>
+              <div className="bg-[#1A1A1A] p-6 rounded-lg text-center border border-[#E0B978]/10">
+                <h4 className="text-xl font-bold mb-2 text-[#E0B978]">Early Advantage</h4>
+                <p className="text-gray-300">
+                  Early investors stand to gain significant returns as we implement our roadmap and expand our community reach
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Key Benefits */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
