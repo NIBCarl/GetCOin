@@ -59,11 +59,11 @@ export function PresaleBanner() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="fixed bottom-4 right-4 z-50 max-w-sm w-full"
+          className="fixed bottom-0 sm:bottom-4 left-0 sm:left-auto right-0 sm:right-4 z-50 w-full sm:max-w-sm sm:w-auto m-0 sm:m-auto"
         >
-          <div className="bg-[#1E1E1E] text-white rounded-lg shadow-[0_0_20px_rgba(224,185,120,0.3)] overflow-hidden border border-[#E0B978]/20">
-            <div className="flex justify-between items-center p-3 bg-gradient-to-r from-[#B08C5D] to-[#1E1E1E]">
-              <h3 className="font-bold">
+          <div className="bg-[#1E1E1E] text-white rounded-t-lg sm:rounded-lg shadow-[0_0_20px_rgba(224,185,120,0.3)] overflow-hidden border border-[#E0B978]/20">
+            <div className="flex justify-between items-center p-2 sm:p-3 bg-gradient-to-r from-[#B08C5D] to-[#1E1E1E]">
+              <h3 className="font-bold text-sm sm:text-base">
                 <span className="text-[#E0B978]">PRESALE</span> IS LIVE!
               </h3>
               <motion.button 
@@ -75,22 +75,22 @@ export function PresaleBanner() {
                 <X size={18} />
               </motion.button>
             </div>
-            <div className="p-4">
-              <div className="flex justify-between mb-3">
-                <div className="text-center">
-                  <span className="text-xl font-bold text-white">{days}</span>
-                  <p className="text-xs text-gray-400">days</p>
+            <div className="p-3 sm:p-4">
+              <div className="flex justify-between mb-3 px-2">
+                <div className="text-center px-1">
+                  <span className="text-lg sm:text-xl font-bold text-white">{days}</span>
+                  <p className="text-[10px] sm:text-xs text-gray-400">days</p>
                 </div>
-                <div className="text-center">
-                  <span className="text-xl font-bold text-white">{hours}</span>
-                  <p className="text-xs text-gray-400">hours</p>
+                <div className="text-center px-1">
+                  <span className="text-lg sm:text-xl font-bold text-white">{hours}</span>
+                  <p className="text-[10px] sm:text-xs text-gray-400">hours</p>
                 </div>
-                <div className="text-center">
-                  <span className="text-xl font-bold text-white">{minutes}</span>
-                  <p className="text-xs text-gray-400">mins</p>
+                <div className="text-center px-1">
+                  <span className="text-lg sm:text-xl font-bold text-white">{minutes}</span>
+                  <p className="text-[10px] sm:text-xs text-gray-400">mins</p>
                 </div>
               </div>
-              <p className="text-sm mb-3 text-gray-300">
+              <p className="text-xs sm:text-sm mb-3 text-gray-300 px-2">
                 Don&apos;t miss out on GEN Coin at the best price! Price increases in:
               </p>
               
@@ -101,18 +101,18 @@ export function PresaleBanner() {
                 >
                   <Link 
                     href="/presale"
-                    className="block w-full bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-bold hover:shadow-[0_0_15px_rgba(224,185,120,0.5)] text-center py-2 px-4 rounded-md transition-all duration-300"
+                    className="block w-full bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-bold hover:shadow-[0_0_15px_rgba(224,185,120,0.5)] text-center py-2 px-3 sm:px-4 rounded text-sm sm:text-base transition-all duration-300 mx-2"
                   >
                     Buy GEN Tokens
                   </Link>
                 </motion.div>
               ) : (
-                <div className="space-y-2">
+                <div className="space-y-2 px-2">
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                     onClick={handleParticipate}
-                    className="block w-full bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-bold hover:shadow-[0_0_15px_rgba(224,185,120,0.5)] text-center py-2 px-4 rounded-md transition-all duration-300"
+                    className="block w-full bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-bold hover:shadow-[0_0_15px_rgba(224,185,120,0.5)] text-center py-2 px-3 sm:px-4 rounded text-sm sm:text-base transition-all duration-300"
                   >
                     Connect Wallet
                   </motion.button>
@@ -122,7 +122,7 @@ export function PresaleBanner() {
                   >
                     <Link 
                       href="/presale"
-                      className="block w-full bg-transparent border border-[#E0B978]/30 text-[#E0B978] hover:bg-[#E0B978]/10 text-center py-2 px-4 rounded-md transition-all duration-300"
+                      className="block w-full bg-transparent border border-[#E0B978]/30 text-[#E0B978] hover:bg-[#E0B978]/10 text-center py-2 px-3 sm:px-4 rounded text-sm sm:text-base transition-all duration-300"
                     >
                       Learn More
                     </Link>
