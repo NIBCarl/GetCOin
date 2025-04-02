@@ -24,7 +24,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center lg:text-left pl-24 md:pl-32 lg:pl-40"
+            className="text-center lg:text-left px-4 sm:px-8 lg:pl-16"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white [text-shadow:_0_0_30px_rgba(224,185,120,0.3)]">
               <span className="text-[#E0B978]">GEN</span> Coin: A Meme Coin
@@ -35,19 +35,37 @@ export function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link href="/presale">
-                <Button
-                  className="bg-gradient-to-r from-[#E0B978] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08C5D] text-black font-bold text-lg px-8 py-6 transition-all shadow-lg hover:shadow-[0_0_20px_rgba(224,185,120,0.5)] w-full sm:w-auto"
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 25px rgba(224,185,120,0.7)" 
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Join Presale
-                </Button>
+                  <Button
+                    className="bg-gradient-to-r from-[#E0B978] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#B08C5D] text-black font-bold text-lg px-8 py-6 transition-all shadow-lg w-full sm:w-auto"
+                  >
+                    Join Presale
+                  </Button>
+                </motion.div>
               </Link>
               <Link href="#about">
-                <Button
-                  variant="outline"
-                  className="border-[#E0B978] text-[#E0B978] hover:bg-[#E0B978]/10 font-bold text-lg px-8 py-6 w-full sm:w-auto"
+                <motion.div
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 25px rgba(224,185,120,0.3)" 
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
-                  Learn More
-                </Button>
+                  <Button
+                    variant="outline"
+                    className="border-[#E0B978] text-[#E0B978] hover:bg-[#E0B978]/10 font-bold text-lg px-8 py-6 w-full sm:w-auto"
+                  >
+                    Learn More
+                  </Button>
+                </motion.div>
               </Link>
             </div>
           </motion.div>
@@ -88,11 +106,20 @@ export function Hero() {
           />
           <div className="mt-6 flex justify-center">
             <Link href="/presale">
-              <Button
-                className="bg-gradient-to-r from-[#ffdebb] to-[#dbb78e] hover:from-[#ffdebb] hover:to-[#dbb78e] text-black font-bold px-8 py-6 transition-all shadow-lg hover:shadow-[0_0_15px_rgba(255,222,187,0.5)]"
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 0 25px rgba(255,222,187,0.7)" 
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                View Presale Details
-              </Button>
+                <Button
+                  className="bg-gradient-to-r from-[#ffdebb] to-[#dbb78e] hover:from-[#ffdebb] hover:to-[#dbb78e] text-black font-bold px-8 py-6 transition-all shadow-lg"
+                >
+                  View Presale Details
+                </Button>
+              </motion.div>
             </Link>
           </div>
         </motion.div>

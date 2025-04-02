@@ -5,7 +5,7 @@ import { PresaleCounter } from "@/components/home/presale-counter";
 import { motion } from "framer-motion";
 import useWallet from "@/hooks/useWallet";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import { Button } from "@/components/ui/button";
+import { AnimatedButton } from "@/components/shared/animated-button";
 
 export default function PresalePage() {
   const { connected, connecting, balance, displayAddress } = useWallet();
@@ -85,12 +85,20 @@ export default function PresalePage() {
                 <p className="text-sm text-gray-400 mb-1">Estimated Allocation</p>
                 <p className="text-[#E0B978] text-xl font-bold mb-4">0 GEN</p>
                 <div className="flex gap-2">
-                  <Button variant="outline" className="flex-1 border-[#E0B978]/30 hover:bg-[#E0B978]/10 text-[#E0B978]">
+                  <AnimatedButton 
+                    variant="outline" 
+                    className="flex-1 border-[#E0B978]/30 text-[#E0B978]"
+                    glowColor="rgba(224,185,120,0.3)"
+                  >
                     View History
-                  </Button>
-                  <Button variant="outline" className="flex-1 border-[#E0B978]/30 hover:bg-[#E0B978]/10 text-[#E0B978]">
+                  </AnimatedButton>
+                  <AnimatedButton 
+                    variant="outline" 
+                    className="flex-1 border-[#E0B978]/30 text-[#E0B978]"
+                    glowColor="rgba(224,185,120,0.3)"
+                  >
                     Refer Friends
-                  </Button>
+                  </AnimatedButton>
                 </div>
               </div>
             </div>
@@ -142,13 +150,14 @@ export default function PresalePage() {
               </ol>
               {!connected && (
                 <div className="mt-4">
-                  <Button 
-                    className="w-full bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-bold hover:shadow-[0_0_15px_rgba(224,185,120,0.5)] transition-all py-2"
+                  <AnimatedButton 
+                    className="w-full bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-bold py-2"
                     onClick={() => setVisible(true)}
                     disabled={connecting}
+                    glowColor="rgba(224,185,120,0.7)"
                   >
                     {connecting ? "Connecting..." : "Connect Wallet Now"}
-                  </Button>
+                  </AnimatedButton>
                 </div>
               )}
             </div>

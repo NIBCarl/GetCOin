@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import { AnimatedButton } from "@/components/shared/animated-button";
 
 export function Community() {
   const socialLinks = [
@@ -128,9 +128,14 @@ export function Community() {
                   <p className="text-gray-300">Shape the future direction of GEN Coin</p>
                 </li>
               </ul>
-              <Button className="bg-gradient-to-r from-[#ffdebb] to-[#dbb78e] hover:from-[#ffdebb] hover:to-[#dbb78e] text-black font-bold py-6 px-8 transition-all shadow-lg hover:shadow-[0_0_15px_rgba(255,222,187,0.5)]">
-                Apply Now
-              </Button>
+              <div className="inline-block">
+                <AnimatedButton 
+                  className="bg-gradient-to-r from-[#ffdebb] to-[#dbb78e] text-black font-bold py-4 px-6 shadow-lg"
+                  glowColor="rgba(255,222,187,0.7)"
+                >
+                  Apply Now
+                </AnimatedButton>
+              </div>
             </div>
             <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20">
               <h4 className="text-lg font-bold text-white mb-4">Council Member Requirements</h4>

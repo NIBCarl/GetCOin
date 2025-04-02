@@ -4,12 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { usePathname } from "next/navigation";
 import { WalletConnector } from "@/components/auth/wallet-connector";
 import { WalletStatus } from "@/components/auth/wallet-status";
 import useWallet from "@/hooks/useWallet";
+import { AnimatedButton } from "@/components/shared/animated-button";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,9 +44,9 @@ export function Header() {
         <Image
           src="/Logo Text.png"
           alt="GEN Coin"
-          width={180}
-          height={80}
-          className="h-12 w-auto"
+          width={220}
+          height={120}
+          className="h-16 w-auto"
         />
       </Link>
       
@@ -60,11 +60,18 @@ export function Header() {
         {getNavLink("tokenomics", "Tokenomics")}
         {getNavLink("roadmap", "Roadmap")}
         {getNavLink("community", "Community")}
-        <Link 
-          href="/presale" 
-          className="btn-gradient px-4 py-2 rounded-md font-medium"
-        >
-          Presale Live
+        <Link href="/presale">
+          <motion.div
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 0 15px rgba(224,185,120,0.4)" 
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="btn-gradient px-4 py-2 rounded-md font-medium"
+          >
+            Presale Live
+          </motion.div>
         </Link>
       </div>
       
@@ -74,11 +81,12 @@ export function Header() {
         ) : (
           <Dialog open={isWalletDialogOpen} onOpenChange={setIsWalletDialogOpen}>
             <DialogTrigger asChild>
-              <Button 
-                className="bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-medium hover:shadow-[0_0_15px_rgba(224,185,120,0.5)] transition-all border-none"
+              <AnimatedButton 
+                className="bg-gradient-to-r from-[#E0B978] to-[#B08C5D] text-black font-medium border-none"
+                glowColor="rgba(224,185,120,0.5)"
               >
                 Connect Wallet
-              </Button>
+              </AnimatedButton>
             </DialogTrigger>
             <WalletConnector 
               isOpen={isWalletDialogOpen} 
@@ -88,11 +96,18 @@ export function Header() {
         )}
         
         <button onClick={toggleMenu} className="lg:hidden text-white hover:text-[#E0B978] transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+          {isMenuOpen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          )}
         </button>
       </div>
       
