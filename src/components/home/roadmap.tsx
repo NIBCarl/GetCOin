@@ -52,19 +52,19 @@ function RoadmapItem({ title, description, quarter, index, isCompleted = false }
 export function Roadmap() {
   const roadmapItems = [
     {
-      quarter: "Q2\n'25",
+      quarter: "Q2 '25",
       title: "Pre-Development",
       description: "Secure initial funding from early supporters. Develop the smart contract and website. Recruit the GEN Council.",
       isCompleted: false
     },
     {
-      quarter: "Q2\n'25",
+      quarter: "Q2 '25",
       title: "Presale",
       description: "Launch public sale to raise funds for marketing and liquidity. Build hype and engage with social community.",
       isCompleted: false
     },
     {
-      quarter: "Q3\n'25",
+      quarter: "Q3 '25",
       title: "Launch",
       description: "List on decentralized exchanges. Implement stabilization measures.",
       isCompleted: false
@@ -76,7 +76,7 @@ export function Roadmap() {
       isCompleted: false
     },
     {
-      quarter: "Q2\n'26",
+      quarter: "Q2 '26",
       title: "Expansion",
       description: "Start funding community projects from the Community Fund.",
       isCompleted: false

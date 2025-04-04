@@ -164,11 +164,10 @@ export default function PresalePage() {
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold mb-3 text-[#E0B978]">Why Invest in GEN Coin?</h3>
-              <ul className="list-disc pl-5 space-y-2 text-gray-300">
-                <li>Combines meme coin virality with real-world impact</li>
+              <h3 className="text-xl font-semibold mb-4 text-white">Why GEN Coin?</h3>
+              <ul className="list-none space-y-3">
+                <li>Built on Solana for fast, efficient transactions</li>
                 <li>20% of tokens allocated to Community Fund for projects</li>
-                <li>Built on Solana for fast, low-cost transactions</li>
                 <li>Transparent governance through the GEN Council</li>
                 <li>Strong locking strategy to ensure price stability</li>
               </ul>

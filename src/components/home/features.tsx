@@ -12,7 +12,7 @@ export function Features() {
     },
     {
       title: "GEN Council Governance",
-      description: "Community-elected council members vote on fund allocation and tokenomics adjustments.",
+      description: "Council members vote on fund allocation and tokenomics adjustments.",
       icon: "🏛️"
     },
     {
@@ -123,7 +123,7 @@ export function Features() {
                 <span className="text-[#E0B978] font-bold">Liquidity Locking</span> - 20% of total supply locked as liquidity forever
               </li>
               <li className="pl-4 border-l-2 border-[#E0B978]">
-                <span className="text-[#E0B978] font-bold">Council Oversight</span> - Elected experts manage the treasury
+                <span className="text-[#E0B978] font-bold">Council Oversight</span> - Community-minded experts manage the treasury
               </li>
               <li className="pl-4 border-l-2 border-[#E0B978]">
                 <span className="text-[#E0B978] font-bold">Community Fund</span> - Long-term project funding

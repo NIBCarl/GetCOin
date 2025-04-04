@@ -184,7 +184,7 @@ export function About() {
               </svg>
             </div>
             <h3 className="text-xl font-bold mb-2 text-[#E0B978]">Community-Driven</h3>
-            <p className="text-gray-300">Token holders can propose and vote on projects through our democratic governance model</p>
+            <p className="text-gray-300">Token holders can propose and vote on projects through our non-profit governance model</p>
           </div>
           
           <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] text-center">
