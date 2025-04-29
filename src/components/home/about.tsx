@@ -62,13 +62,16 @@ export function About() {
             <p className="text-gray-300 mb-6">
               Unlike typical meme coins that rely solely on hype, GEN Coin is built on a foundation of transparency, community governance, and sustainable tokenomics. Our unique GEN Council ensures that community funds are allocated responsibly and effectively.
             </p>
+            <p className="text-gray-300 mb-6">
+              GEN Coin is the preferred currency for people around the world!
+            </p>
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
                 <p className="text-[#E0B978] font-bold text-xl mb-1">20%</p>
                 <p className="text-gray-400 text-sm">Allocated to Community Fund</p>
               </div>
               <div className="bg-[#1A1A1A] p-4 rounded-lg border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
-                <p className="text-[#E0B978] font-bold text-xl mb-1">7-10</p>
+                <p className="text-[#E0B978] font-bold text-xl mb-1">9-13</p>
                 <p className="text-gray-400 text-sm">GEN Council Members</p>
               </div>
             </div>
@@ -99,7 +102,7 @@ export function About() {
             <div>
               <h3 className="text-2xl font-bold mb-4 text-[#E0B978]">Community Empowerment</h3>
               <p className="text-gray-300 mb-4">
-                The GEN Council, composed of 8 to 10 community, business, and banking leaders, will guide the project 
+                The GEN Council, composed of 9 to 13 community, business, and banking leaders, will guide the project 
                 and make decisions on fund allocations, ensuring that the project stays true to its mission.
               </p>
               <p className="text-gray-300">
@@ -119,11 +122,10 @@ export function About() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-16 max-w-7xl mx-auto"
         >
-          <h3 className="text-2xl font-bold mb-4 text-[#E0B978] text-center">Financial Opportunity</h3>
+          <h3 className="text-2xl font-bold mb-4 text-[#E0B978] text-center">Our Commitment</h3>
           <div className="bg-[#121212] p-8 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
             <p className="text-gray-300 mb-6 text-center">
-              By combining the fun and virality of meme coins with the purpose of a non-profit, GEN Coin 
-              offers a unique value proposition: financial returns coupled with social impact.
+              The GEN Council is fully committed to GEN Coin&apos;s success, with the majority of GEN Council tokens locked at launch to ensure stability.
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-[#1A1A1A] p-6 rounded-lg text-center border border-[#E0B978]/10">
@@ -184,7 +186,7 @@ export function About() {
               </svg>
             </div>
             <h3 className="text-xl font-bold mb-2 text-[#E0B978]">Community-Driven</h3>
-            <p className="text-gray-300">Token holders can propose and vote on projects through our non-profit governance model</p>
+            <p className="text-gray-300">Token holders can join the discussion on projects to fund through our non-profit governance model</p>
           </div>
           
           <div className="bg-[#121212] p-6 rounded-xl border border-[#E0B978]/20 shadow-[0_4px_30px_rgba(0,0,0,0.4)] text-center">

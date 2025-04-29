@@ -4,12 +4,21 @@ import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AnimatedButton } from "@/components/shared/animated-button";
 import { useRouter } from "next/navigation";
+import useWallet from "@/hooks/useWallet";
+import { useWalletModal } from "@solana/wallet-adapter-react-ui";
+import { CurrencyConverter } from "@/components/shared/currency-converter";
 
 export default function Dashboard() {
   const router = useRouter();
+  const { connected, publicKey } = useWallet();
+  const { setVisible } = useWalletModal();
+  
   // Remove mock data - will be fetched from API in real implementation
   const [isLoading] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
+  
+  // GEN price in USD (this would come from your API in production)
+  const genPriceUsd = 0.0025;
   
   // Function to handle Twitter sharing
   const shareOnTwitter = () => {
@@ -20,18 +29,6 @@ export default function Dashboard() {
     window.open(twitterShareUrl, '_blank', 'noopener,noreferrer');
   };
   
-  // Function to copy referral link to clipboard
-  const copyReferralLink = async () => {
-    const referralLink = "Connect wallet to generate your referral link";
-    try {
-      await navigator.clipboard.writeText(referralLink);
-      setCopySuccess(true);
-      setTimeout(() => setCopySuccess(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy text: ', err);
-    }
-  };
-  
   // Navigate to presale page
   const navigateToPresale = () => {
     router.push("/presale");
@@ -39,10 +36,14 @@ export default function Dashboard() {
   
   // Handle sharing referral link
   const shareReferralLink = () => {
-    // In a real implementation, this would use the user's wallet address
+    // Use the user's actual wallet address for the referral link
+    if (!connected || !publicKey) {
+      setVisible(true);
+      return;
+    }
+    
     const origin = window.location.origin;
-    const dummyWalletAddress = "0x123...abc"; // This would be the real wallet address
-    const referralUrl = `${origin}/presale?ref=${encodeURIComponent(dummyWalletAddress)}`;
+    const referralUrl = `${origin}/presale?ref=${encodeURIComponent(publicKey.toString())}`;
     
     // Share interface if available
     if (navigator.share) {
@@ -78,19 +79,25 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gradient-to-b from-[#1E1E1E] to-[#151515] p-6 rounded-lg border border-[#E0B978]/20 shadow-[0_0_15px_rgba(224,185,120,0.15)]">
               <h2 className="text-xl font-medium mb-2">GEN Balance</h2>
-              <p className="text-3xl font-bold">--</p>
-              <p className="text-[#E0B978] mt-1">≈ $0.00 USD</p>
+              <p className="text-3xl font-bold">{connected ? "Loading..." : "--"}</p>
+              {connected ? (
+                <CurrencyConverter usdAmount={0} className="mt-1" />
+              ) : (
+                <p className="text-[#E0B978] mt-1">≈ $0.00 USD</p>
+              )}
+              <p className="text-xs text-gray-400 mt-1">(GEN price quoted in USD)</p>
             </div>
             
             <div className="bg-gradient-to-b from-[#1E1E1E] to-[#151515] p-6 rounded-lg border border-[#E0B978]/20 shadow-[0_0_15px_rgba(224,185,120,0.15)]">
               <h2 className="text-xl font-medium mb-2">Current Price</h2>
-              <p className="text-3xl font-bold">$0.0025</p>
-              <p className="text-[#E0B978] mt-1">Next: $0.0025 (+0%)</p>
+              <p className="text-3xl font-bold">${genPriceUsd}</p>
+              <p className="text-[#E0B978] mt-1">Next: ${genPriceUsd} (+0%)</p>
+              <p className="text-xs text-gray-400 mt-1">(USD per GEN)</p>
             </div>
             
             <div className="bg-gradient-to-b from-[#1E1E1E] to-[#151515] p-6 rounded-lg border border-[#E0B978]/20 shadow-[0_0_15px_rgba(224,185,120,0.15)]">
               <h2 className="text-xl font-medium mb-2">Presale Ends In</h2>
-              <p className="text-3xl font-bold">--:--:--</p>
+              <p className="text-3xl font-bold">{connected ? "Loading..." : "--:--:--"}</p>
               <p className="text-[#E0B978] mt-1">Get more GEN before price increase!</p>
             </div>
           </div>
@@ -113,14 +120,20 @@ export default function Dashboard() {
                 <h3 className="text-xl font-medium mb-3 text-[#E0B978]">Token Details</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <p className="text-gray-300 mb-1">Balance: <span className="font-semibold text-white">--</span></p>
-                    <p className="text-gray-300 mb-1">USD Value: <span className="font-semibold text-white">$0.00</span></p>
-                    <p className="text-gray-300 mb-1">Token Contract: <span className="font-semibold text-sm text-white">--</span></p>
+                    <p className="text-gray-300 mb-1">Balance: <span className="font-semibold text-white">{connected ? "Loading..." : "--"}</span></p>
+                    <p className="text-gray-300 mb-1">
+                      USD Value: <span className="font-semibold text-white">
+                        {connected ? (
+                          <CurrencyConverter usdAmount={0} className="inline" />
+                        ) : "$0.00"}
+                      </span>
+                    </p>
+                    <p className="text-gray-300 mb-1">Token Contract: <span className="font-semibold text-sm text-white">{connected ? "Loading..." : "--"}</span></p>
                   </div>
                   <div>
-                    <p className="text-gray-300 mb-1">Current Price: <span className="font-semibold text-white">$0.0025</span></p>
-                    <p className="text-gray-300 mb-1">Unlocked Tokens: <span className="font-semibold text-white">--</span></p>
-                    <p className="text-gray-300 mb-1">Locked Tokens: <span className="font-semibold text-white">--</span></p>
+                    <p className="text-gray-300 mb-1">Current Price: <span className="font-semibold text-white">${genPriceUsd}</span> <span className="text-xs text-gray-400">(USD)</span></p>
+                    <p className="text-gray-300 mb-1">Unlocked Tokens: <span className="font-semibold text-white">{connected ? "Loading..." : "--"}</span></p>
+                    <p className="text-gray-300 mb-1">Locked Tokens: <span className="font-semibold text-white">{connected ? "Loading..." : "--"}</span></p>
                   </div>
                 </div>
               </div>
@@ -174,7 +187,10 @@ export default function Dashboard() {
                   <div className="flex items-center gap-3">
                     <input
                       type="text"
-                      value="Connect wallet to generate your referral link"
+                      value={connected && publicKey 
+                        ? `${window.location.origin}/presale?ref=${publicKey.toString()}`
+                        : "Connect wallet to generate your referral link"
+                      }
                       readOnly
                       className="flex-1 bg-[#1A1A1A] border border-[#2A2A2A] rounded-md p-2 text-sm text-white"
                     />
@@ -182,9 +198,9 @@ export default function Dashboard() {
                       variant="outline" 
                       className="border-[#E0B978]/30 text-[#E0B978]"
                       glowColor="rgba(224,185,120,0.3)"
-                      onClick={copyReferralLink}
+                      onClick={connected && publicKey ? () => copyReferralLinkToClipboard(`${window.location.origin}/presale?ref=${publicKey.toString()}`) : () => setVisible(true)}
                     >
-                      {copySuccess ? "Copied!" : "Copy"}
+                      {!connected ? "Connect" : copySuccess ? "Copied!" : "Copy"}
                     </AnimatedButton>
                   </div>
                 </div>
@@ -195,15 +211,15 @@ export default function Dashboard() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="border border-[#2A2A2A] bg-[#121212] rounded-md p-4 text-center">
                     <p className="text-gray-400 text-sm">Referrals</p>
-                    <p className="text-2xl font-bold text-[#E0B978]">0</p>
+                    <p className="text-2xl font-bold text-[#E0B978]">{connected ? "Loading..." : "0"}</p>
                   </div>
                   <div className="border border-[#2A2A2A] bg-[#121212] rounded-md p-4 text-center">
                     <p className="text-gray-400 text-sm">Total Volume</p>
-                    <p className="text-2xl font-bold text-[#E0B978]">$0.00</p>
+                    <p className="text-2xl font-bold text-[#E0B978]">{connected ? "Loading..." : "$0.00"} <span className="text-xs text-gray-400">(USD)</span></p>
                   </div>
                   <div className="border border-[#2A2A2A] bg-[#121212] rounded-md p-4 text-center">
                     <p className="text-gray-400 text-sm">Total Earnings</p>
-                    <p className="text-2xl font-bold text-[#E0B978]">$0.00</p>
+                    <p className="text-2xl font-bold text-[#E0B978]">{connected ? "Loading..." : "$0.00"} <span className="text-xs text-gray-400">(USD)</span></p>
                   </div>
                 </div>
               </div>
@@ -214,7 +230,7 @@ export default function Dashboard() {
                   glowColor="rgba(224,185,120,0.5)"
                   onClick={shareOnTwitter}
                 >
-                  Share on Twitter
+                  Share on X
                 </AnimatedButton>
               </div>
             </div>

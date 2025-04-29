@@ -38,7 +38,7 @@ export function Footer() {
               <Link href="/presale" className="text-gray-300 hover:text-[#E0B978] transition-colors glow-effect">Presale</Link>
               <a href="https://solana.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#E0B978] transition-colors glow-effect">Solana</a>
               <Link href="/dashboard" className="text-gray-300 hover:text-[#E0B978] transition-colors glow-effect">Dashboard</Link>
-              <Link href="/council" className="text-gray-300 hover:text-[#E0B978] transition-colors glow-effect">GEN Council</Link>
+              <a href="https://thegencouncil.com/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#E0B978] transition-colors glow-effect">GEN Council</a>
             </div>
             
             <div className="flex flex-col gap-3 col-span-2 md:col-span-1">
@@ -55,7 +55,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a 
-                  href="https://discord.gg/GENCoin" 
+                  href="https://discord.gg/gencoinofficial" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-[#E0B978] transition-colors"
@@ -65,7 +65,7 @@ export function Footer() {
                   </svg>
                 </a>
                 <a 
-                  href="https://www.reddit.com/r/GenCoin/" 
+                  href="https://www.reddit.com/r/gencoin_official" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-[#E0B978] transition-colors"

@@ -40,7 +40,7 @@ export function Features() {
 
   const benefits = [
     "Professional treasury management by qualified council members",
-    "Regularly scheduled community votes on fund allocation",
+    "Community discussions on fund allocation",
     "Transparent on-chain governance process",
     "Direct funding for community project proposals",
     "Long-term asset appreciation strategies"
@@ -120,7 +120,7 @@ export function Features() {
             </p>
             <ul className="space-y-3">
               <li className="pl-4 border-l-2 border-[#E0B978]">
-                <span className="text-[#E0B978] font-bold">Liquidity Locking</span> - 20% of total supply locked as liquidity forever
+                <span className="text-[#E0B978] font-bold">Liquidity Locking</span> - 20% of total supply locked as liquidity indefinitely
               </li>
               <li className="pl-4 border-l-2 border-[#E0B978]">
                 <span className="text-[#E0B978] font-bold">Council Oversight</span> - Community-minded experts manage the treasury

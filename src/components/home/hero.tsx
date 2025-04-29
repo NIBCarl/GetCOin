@@ -27,8 +27,7 @@ export function Hero() {
             className="text-center lg:text-left px-4 sm:px-8 lg:pl-16"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white [text-shadow:_0_0_30px_rgba(224,185,120,0.3)]">
-              <span className="bg-gradient-to-r from-[#E0B978] to-[#B08C5D] bg-clip-text text-transparent">GEN Coin:</span> A Meme Coin
-              <span className="block mt-2">With Real Purpose</span>
+              <span className="bg-gradient-to-r from-[#E0B978] to-[#B08C5D] bg-clip-text text-transparent">GEN Coin:</span> Building Community Value
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
               A Solana-based cryptocurrency that combines the viral nature of meme coins with real-world impact through community governance.

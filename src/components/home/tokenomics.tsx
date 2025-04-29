@@ -115,14 +115,14 @@ export function Tokenomics() {
                 <div>
                   <h4 className="text-xl font-bold text-white mb-2">Public Sale <span className="text-gray-400">(40%, 400M tokens)</span></h4>
                   <ul className="list-disc list-inside text-gray-300 space-y-1 ml-4">
-                    <li>Pre-Development (8%, 80M): 100% locked for 12 months</li>
-                    <li>Presale (32%, 320M): 60% locked for 12 months, 40% unlocked</li>
+                    <li>Pre-Development (4%, 40M)</li>
+                    <li>Presale (36%, 360M)</li>
                   </ul>
                 </div>
                 
                 <div>
                   <h4 className="text-xl font-bold text-white mb-2">Launch <span className="text-gray-400">(5%, 50M tokens)</span></h4>
-                  <p className="text-gray-300 ml-4">100% unlocked at launch</p>
+                  <p className="text-gray-300 ml-4">100% unlocked at launch for GEN Council launch initiatives</p>
                 </div>
                 
                 <div>
@@ -137,7 +137,7 @@ export function Tokenomics() {
                 
                 <div>
                   <h4 className="text-xl font-bold text-white mb-2">GEN Council Budget <span className="text-gray-400">(15%, 150M tokens)</span></h4>
-                  <p className="text-gray-300 ml-4">Released quarterly over 3 years to fund operations and development</p>
+                  <p className="text-gray-300 ml-4">100% locked for 12 months, then released as needed for continued operations and development</p>
                 </div>
               </div>
             </div>

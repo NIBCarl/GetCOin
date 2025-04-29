@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import useWallet from "@/hooks/useWallet";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { AnimatedButton } from "@/components/shared/animated-button";
+import Link from "next/link";
 
 export default function PresalePage() {
   const { connected, connecting, balance, displayAddress } = useWallet();
@@ -22,12 +23,16 @@ export default function PresalePage() {
       answer: "GEN Coin is a Solana-based cryptocurrency that combines the viral nature of meme coins with real social impact. Unlike traditional meme coins, GEN Coin allocates 20% of its total supply to fund community projects and initiatives."
     },
     {
+      question: "I like the concept of what GEN Coin will accomplish, but I need more information.",
+      answer: "We would love to share more about the exciting GEN Coin project. Contact us here: <a href=\"https://thegencouncil.com/\" target=\"_blank\" rel=\"noopener noreferrer\" className=\"text-[#E0B978] hover:text-white transition-colors\">https://thegencouncil.com/</a>"
+    },
+    {
       question: "How do I participate in the presale?",
       answer: "To participate in the presale, connect your Solana wallet (Phantom, Solflare, etc.), choose your preferred payment method (SOL, USDT, or USDC), enter the amount you wish to invest, and confirm the transaction."
     },
     {
       question: "When will GEN Coin be listed on exchanges?",
-      answer: "GEN Coin is scheduled to be listed on decentralized exchanges in Q3 2025, following the completion of the presale phase. We're also working on partnerships with centralized exchanges for future listings."
+      answer: "GEN Coin is scheduled to be listed on decentralized exchanges in Q3 2025, following the completion of the presale phase. We're also working on partnerships with centralized exchanges for future listings. Until GEN Coin is listed on decentralized exchanges, your GEN Coin investment can be monitored here: <a href=\"https://gencoinofficial.com/dashboard/\" className=\"text-[#E0B978] hover:text-white transition-colors\">https://gencoinofficial.com/dashboard/</a>"
     },
     {
       question: "Is there a minimum or maximum investment amount?",
@@ -118,12 +123,10 @@ export default function PresalePage() {
               <h3 className="text-xl font-semibold mb-3 text-[#E0B978]">Tokenomics</h3>
               <ul className="list-disc pl-5 space-y-2 text-gray-300">
                 <li>Total Supply: <span className="text-[#E0B978]">1,000,000,000 GEN</span></li>
-                <li>Pre Development: <span className="text-[#E0B978]">8% (80,000,000 GEN)</span></li>
-                <li>Presale Allocation: <span className="text-[#E0B978]">32% (320,000,000 GEN)</span></li>
+                <li>Pre Development: <span className="text-[#E0B978]">4% (40,000,000 GEN)</span></li>
+                <li>Presale Allocation: <span className="text-[#E0B978]">36% (360,000,000 GEN)</span></li>
                 <li>Initial Price: <span className="text-[#E0B978]">$0.0025</span></li>
-                <li>Listing Price: <span className="text-[#E0B978]">$0.0025 (0% increase)</span></li>
-                <li>60% of presale tokens locked for 12 months</li>
-                <li>40% of presale tokens unlocked at launch</li>
+                <li>Listing Price: <span className="text-[#E0B978]">$0.0035 (40% increase)</span></li>
               </ul>
             </div>
             
@@ -144,10 +147,13 @@ export default function PresalePage() {
             <div>
               <h3 className="text-xl font-semibold mb-3 text-[#E0B978]">How to Buy</h3>
               <ol className="list-decimal pl-5 space-y-2 text-gray-300">
+                <li>Get a Solana compatible wallet; <a href="https://phantom.app/" target="_blank" rel="noopener noreferrer" className="text-[#E0B978] hover:text-white transition-colors">Phantom</a> is preferred.</li>
                 <li>Connect your Solana wallet</li>
+                <li>Determine the number of GEN Coin tokens you wish to purchase and the amount of SOL needed to complete the investment.</li>
                 <li>Choose payment method (SOL, USDT, USDC)</li>
                 <li>Enter the amount you wish to purchase</li>
                 <li>Confirm the transaction</li>
+                <li>Monitor your investment <Link href="/dashboard" className="text-[#E0B978] hover:text-white transition-colors">here</Link>.</li>
               </ol>
               {!connected && (
                 <div className="mt-4">
@@ -252,9 +258,10 @@ export default function PresalePage() {
                   </svg>
                 </button>
                 {activeFaq === index && (
-                  <div className="p-4 bg-[#1A1A1A]/50 text-gray-300">
-                    {faq.answer}
-                  </div>
+                  <div 
+                    className="p-4 bg-[#1A1A1A]/50 text-gray-300"
+                    dangerouslySetInnerHTML={{ __html: faq.answer }}
+                  />
                 )}
               </div>
             ))}
@@ -267,7 +274,7 @@ export default function PresalePage() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-8 text-center text-gray-400"
         >
-          <p>Need help? Join our <a href="https://discord.gg/GENCoin" className="text-[#E0B978] hover:text-white transition-colors duration-300 hover:glow-effect">Discord community</a> for support</p>
+          <p>Need help? Join our <a href="https://discord.gg/gencoinofficial" className="text-[#E0B978] hover:text-white transition-colors duration-300 hover:glow-effect">Discord community</a> for support</p>
         </motion.div>
       </div>
     </main>
